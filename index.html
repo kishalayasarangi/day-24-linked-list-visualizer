@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linked List Visualizer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="app-title">Linked List Visualizer</h1>
+    <p class="subtitle">Insert, delete and search nodes interactively</p>
+
+    <!-- CONTROLS -->
+    <div class="controls-card">
+
+      <div class="control-section">
+        <h3>Insert Node</h3>
+        <div class="input-row">
+          <input type="text" id="insertVal" placeholder="Value..." maxlength="4"/>
+          <button class="btn-primary" onclick="insertHead()">At Head</button>
+          <button class="btn-primary" onclick="insertTail()">At Tail</button>
+        </div>
+        <div class="input-row">
+          <input type="number" id="insertPos" placeholder="Position (0-based)..." min="0"/>
+          <button class="btn-primary" onclick="insertAt()">At Position</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>Delete Node</h3>
+        <div class="input-row">
+          <input type="text" id="deleteVal" placeholder="Value..." maxlength="4"/>
+          <button class="btn-danger" onclick="deleteByVal()">By Value</button>
+          <input type="number" id="deletePos" placeholder="Position..." min="0"/>
+          <button class="btn-danger" onclick="deleteByPos()">By Position</button>
+        </div>
+      </div>
+
+      <div class="control-section">
+        <h3>Search</h3>
+        <div class="input-row">
+          <input type="text" id="searchVal" placeholder="Search value..." maxlength="4"/>
+          <button class="btn-search" onclick="searchNode()">🔍 Search</button>
+          <button class="btn-clear" onclick="clearList()">Clear All</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <span id="listSize">0</span>
+        <label>Nodes</label>
+      </div>
+      <div class="stat-box">
+        <span id="listHead">—</span>
+        <label>Head</label>
+      </div>
+      <div class="stat-box">
+        <span id="listTail">—</span>
+        <label>Tail</label>
+      </div>
+      <div class="stat-box">
+        <span id="listOps">0</span>
+        <label>Operations</label>
+      </div>
+    </div>
+
+    <!-- VISUALIZER -->
+    <div class="visualizer-card">
+      <div class="list-wrap" id="listWrap">
+        <div class="empty-state">List is empty — insert a node to begin!</div>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-card">
+      <h3>About Linked Lists</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-title">Insert at Head</span>
+          <span class="info-complexity">O(1)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-title">Insert at Tail</span>
+          <span class="info-complexity">O(n)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-title">Delete by Value</span>
+          <span class="info-complexity">O(n)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-title">Search</span>
+          <span class="info-complexity">O(n)</span>
+        </div>
+      </div>
+      <p>Unlike arrays, linked lists don't need contiguous memory. Each node stores data and a pointer to the next node. Great for frequent insertions and deletions.</p>
+    </div>
+
+    <!-- LOG -->
+    <div class="log-card">
+      <h3>Operation Log</h3>
+      <ul class="log-list" id="logList">
+        <li class="log-empty">No operations yet</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>Day 24 of 120 · Kishalaya Sarangi · NIT Rourkela</footer>
+  <script src="script.js"></script>
+</body>
+</html>
